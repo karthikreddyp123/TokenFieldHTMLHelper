@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using TokenField.Token
+@using TokenFieldFinal.Models
+@{
+    UserRegistrationEntities userRegistrationEntities = new UserRegistrationEntities();
+    List<Country> list = userRegistrationEntities.Countries.ToList();
+    List<String> nameList = new List<string>();
+    foreach (Country c in list)
+    {
+        nameList.Add(c.CountryName);
+    }
+}
+@Html.TextBoxTokenField(nameList)
+
+
